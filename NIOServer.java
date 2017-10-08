@@ -1,4 +1,4 @@
-package com.larkin.useful;
+﻿package com.larkin.useful;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
