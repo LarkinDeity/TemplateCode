@@ -25,7 +25,7 @@ public class NIOServer {
 	}
 	
 	public void listen() throws IOException{
-		System.out.println("·şÎñÆ÷¶ËÆô¶¯³É¹¦");
+		System.out.println("æœåŠ¡å™¨ç«¯å¯åŠ¨æˆåŠŸ");
 		while(true){
 			selector.select();
 			
@@ -39,7 +39,7 @@ public class NIOServer {
 
 					SocketChannel channel=server.accept();
 					channel.configureBlocking(false);
-					channel.write(ByteBuffer.wrap(new String("¿Í»§¶Ë·¢ËÍÀ´µÄÒ»ÌõÏûÏ¢").getBytes()));
+					channel.write(ByteBuffer.wrap(new String("å®¢æˆ·ç«¯å‘é€æ¥çš„ä¸€æ¡æ¶ˆæ¯").getBytes()));
 					
 					channel.register(this.selector, SelectionKey.OP_READ);
 					
@@ -56,7 +56,7 @@ public class NIOServer {
 		channel.read(buffer);
 		byte[] data =buffer.array();
 		String msg=new String(data).trim();
-		System.out.println("·şÎñÆ÷¶ËÊÕµ½ÏûÏ¢:"+msg);
+		System.out.println("æœåŠ¡å™¨ç«¯æ”¶åˆ°æ¶ˆæ¯:"+msg);
 		ByteBuffer outBuffer=ByteBuffer.wrap(msg.getBytes());
 		channel.write(outBuffer);
 	}
