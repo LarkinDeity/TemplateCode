@@ -1,4 +1,4 @@
-ï»¿package com.larkin.useful;
+package com.tfl.templateCode;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -25,7 +25,7 @@ public class NIOServer {
 	}
 	
 	public void listen() throws IOException{
-		System.out.println("æœåŠ¡å™¨ç«¯å¯åŠ¨æˆåŠŸ");
+		System.out.println("·şÎñÆ÷¶ËÆô¶¯³É¹¦");
 		while(true){
 			selector.select();
 			
@@ -39,7 +39,7 @@ public class NIOServer {
 
 					SocketChannel channel=server.accept();
 					channel.configureBlocking(false);
-					channel.write(ByteBuffer.wrap(new String("å®¢æˆ·ç«¯å‘é€æ¥çš„ä¸€æ¡æ¶ˆæ¯").getBytes()));
+					channel.write(ByteBuffer.wrap(new String("·şÎñÆ÷¶Ë·¢ËÍÀ´µÄÒ»ÌõÏûÏ¢").getBytes()));
 					
 					channel.register(this.selector, SelectionKey.OP_READ);
 					
@@ -56,7 +56,7 @@ public class NIOServer {
 		channel.read(buffer);
 		byte[] data =buffer.array();
 		String msg=new String(data).trim();
-		System.out.println("æœåŠ¡å™¨ç«¯æ”¶åˆ°æ¶ˆæ¯:"+msg);
+		System.out.println("·şÎñÆ÷¶ËÊÕµ½ÏûÏ¢:"+msg);
 		ByteBuffer outBuffer=ByteBuffer.wrap(msg.getBytes());
 		channel.write(outBuffer);
 	}
